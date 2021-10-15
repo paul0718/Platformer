@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6950a3f8ed1b460c9a5690334357521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   jumpForce: 500
   groundLayer:
     serializedVersion: 2
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warpActive: {fileID: 0}
   warpInactive: {fileID: 0}
-  shurikenForce: 2200
+  shurikenForce: 2600
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
