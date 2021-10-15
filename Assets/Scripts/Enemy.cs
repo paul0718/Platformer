@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
         // Debug.Log("Dist: " + dist);
+        Vector3 character = transform.localScale;
         if (checkShouldFollow(dist)) {
             if (checkShouldAttack(dist)) {
                 // Player loses HP by damnage.
@@ -35,13 +37,14 @@ public class Enemy : MonoBehaviour
                 // Player is in front of the enemy.
                 if (player.transform.position.x < transform.position.x) {
                     this.transform.position += new Vector3(-speed * Time.deltaTime, 0f, 0f);
+                    character.x = -Math.Abs(character.x);
                 }
                 // Player is behind the enemy.
                 if (player.transform.position.x > transform.position.x) {
                     this.transform.position += new Vector3(speed * Time.deltaTime, 0f, 0f);
+                    character.x = Math.Abs(character.x);
                 }
             }
-
         }
     }
 
