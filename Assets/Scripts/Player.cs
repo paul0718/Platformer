@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Player : MonoBehaviour
 
     AudioSource _audioSource;
     public AudioClip jumpSnd;
+
+    public GameObject hpUI;
+    public GameObject PauseUI;
 
     
 
@@ -61,6 +65,10 @@ public class Player : MonoBehaviour
             jumps--;
         }
         newPos = transform.position;
+        if(transform.position.y <= -20)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     void CheckMoveDirection()

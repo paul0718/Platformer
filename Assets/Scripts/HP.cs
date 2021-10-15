@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
     public Slider slider;
 
+    public void Update()
+    {
+        if(slider.value <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
     public void setDefaultHealthPoint(float healthpoint)
     {
         slider.maxValue = healthpoint;
