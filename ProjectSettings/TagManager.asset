@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Smoker
   - Shuriken
+  - Swamp
   layers:
   - Default
   - TransparentFX

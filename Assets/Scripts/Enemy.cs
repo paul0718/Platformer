@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        hp.setDefaultHealthPoint(20);
+        hp.setDefaultHealthPoint(20); 
         startPos = transform.position;
     }
 
