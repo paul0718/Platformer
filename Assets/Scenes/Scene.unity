@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 480562873}
   - component: {fileID: 480562874}
   - component: {fileID: 480562875}
+  - component: {fileID: 480562876}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -420,10 +421,12 @@ MonoBehaviour:
   speed: 4
   returnSpeed: 2.5
   damange: 0
-  enemyHP: 0
+  enemyHP: 20
   followRadius: 5
   attackRadius: 2
   player: {fileID: 1478086317}
+  hp: {fileID: 0}
+  hitSnd: {fileID: 8300000, guid: b5327abb4b7d30e4c85523f6bc21b3ea, type: 3}
 --- !u!50 &480562873
 Rigidbody2D:
   serializedVersion: 4
@@ -458,7 +461,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0000009536743, y: 0.06658125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -469,7 +472,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.4967513, y: 3.6632032}
   m_EdgeRadius: 0
 --- !u!95 &480562875
 Animator:
@@ -490,6 +493,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &480562876
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480562869}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,13 +1369,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jumpForce: 500
+  shurikenForce: 2200
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   feet: {fileID: 121233259}
   distance: 5
   smokerPrefab: {fileID: 1018142104742205094, guid: 90153038d6cf347a395ed6d9a121e9cb, type: 3}
-  spawnPos: {fileID: 121233259}
+  smokeSpawnPos: {fileID: 121233259}
+  shurikenPrefab: {fileID: 5149991093241534400, guid: 5e2aeba5400414955a182b013a63f005, type: 3}
   jumpSnd: {fileID: 8300000, guid: e074da7cfad33464699f32022f929b5c, type: 3}
   shurikenSnd: {fileID: 8300000, guid: db37c9f9ebad24640a728369b80d3d53, type: 3}
   warpSnd: {fileID: 8300000, guid: dd4dd08a367096143a2f0dce85ac9702, type: 3}

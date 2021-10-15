@@ -6,7 +6,7 @@ public class LifeTime : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int life = 2;
+    public float life = 2;
     void Start()
     {
         Destroy(gameObject, life);

@@ -17,9 +17,12 @@ public class Enemy : MonoBehaviour
     Vector3 startPos;
 
     Rigidbody2D _rigidbody;
+    AudioSource _audioSource;
+    public AudioClip hitSnd;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         hp.setDefaultHealthPoint(20);
         startPos = transform.position;
     }
@@ -50,6 +53,10 @@ public class Enemy : MonoBehaviour
             }
         }
         transform.localScale = character;
+        if(enemyHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Return true if the enemy should chase the player.
@@ -64,5 +71,14 @@ public class Enemy : MonoBehaviour
     {
         if (dist < attackRadius) { return true; }
         return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Shuriken")){
+            enemyHP -= 10;
+            _audioSource.PlayOneShot(hitSnd);
+            Destroy(other.gameObject);
+        }
     }
 }
