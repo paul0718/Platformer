@@ -6,28 +6,17 @@ public class Player : MonoBehaviour
 {
     public int speed = 4;
     public int jumpForce = 500;
-    public int shurikenForce = 800;
     int jumps;
     float xSpeed = 0;
     Vector2 oldPos;
     Vector2 newPos;
-
+    
     public LayerMask groundLayer;
     public Transform feet;
-    public float distance = 10;
-    public GameObject smokerPrefab;
-    public Transform smokeSpawnPos;
-    public GameObject shurikenPrefab;
 
-    public AudioClip jumpSnd;
-    public AudioClip shurikenSnd;
-    public AudioClip warpSnd;
     AudioSource _audioSource;
+    public AudioClip jumpSnd;
 
-    float warpCooldown = 3;
-    float nextWarp;
-    float shurikenCooldown = 1;
-    float nextShuriken;
     
 
     public bool facingLeft = false;
@@ -72,29 +61,6 @@ public class Player : MonoBehaviour
             jumps--;
         }
         newPos = transform.position;
-        
-        if(Input.GetButtonDown("Fire1") && Time.time > nextShuriken)
-        {
-            nextShuriken = Time.time + shurikenCooldown;
-            _audioSource.PlayOneShot(shurikenSnd);
-            GameObject newShuriken = Instantiate(shurikenPrefab, transform.position, Quaternion.identity);
-            newShuriken.GetComponent<Rigidbody2D>().AddForce(new Vector2(shurikenForce * transform.localScale.x, 0));
-
-        }
-
-        if(Input.GetButtonDown("Fire3") && Time.time > nextWarp)
-        {
-            nextWarp = Time.time + warpCooldown;
-            _audioSource.PlayOneShot(warpSnd);
-            GameObject newSmoke = Instantiate(smokerPrefab, smokeSpawnPos.position, Quaternion.identity);
-            if(facingLeft){
-                transform.position = new Vector2(transform.position.x-distance,transform.position.y); 
-            }
-            else{
-                transform.position = new Vector2(transform.position.x+distance,transform.position.y);      
-            }
-            GameObject newSmoke2 = Instantiate(smokerPrefab, smokeSpawnPos.position, Quaternion.identity);
-        }
     }
 
     void CheckMoveDirection()

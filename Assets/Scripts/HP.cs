@@ -22,4 +22,9 @@ public class HP : MonoBehaviour
     {
         slider.value = healthpoint;
     }
+
+    public void loseHealth(float damage)
+    {
+        slider.value -= damage;
+    }
 }

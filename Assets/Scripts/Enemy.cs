@@ -10,10 +10,13 @@ public class Enemy : MonoBehaviour
     public int damange;
     public int enemyHP;
     public float followRadius = 3.0f;
-    public float attackRadius = 2.5f;
+    public float attackRadius = 1.5f;
 
     public GameObject player;
     public HP hp;
+    float attackCooldown = 3;
+    float nextAttack;
+
     Vector3 startPos;
 
     Rigidbody2D _rigidbody;
@@ -23,21 +26,20 @@ public class Enemy : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        hp.setDefaultHealthPoint(20); 
+        hp.setDefaultHealthPoint(10);
         startPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
-        Debug.Log("Dist: " + dist);
         Vector3 character = transform.localScale;
         if (checkShouldFollow(dist)) {
-            if (checkShouldAttack(dist)) {
-                float healthpoint = hp.getHealthPoint();
-                hp.setHealthPoint(healthpoint-3);
-                Debug.Log("Play loses HP!");
+            if (checkShouldAttack(dist) && Time.time > nextAttack) {
+                nextAttack = Time.time + attackCooldown;
+                _audioSource.PlayOneShot(hitSnd);
+                hp.loseHealth(damange);
+                player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2000 * transform.localScale.x, 200));
             }
             else {
                 // Player is in front of the enemy.
