@@ -444,7 +444,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &480562874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1275,11 +1275,11 @@ MonoBehaviour:
     m_Bits: 64
   feet: {fileID: 121233259}
   distance: 5
-  smokerPrefab: {fileID: 1018142104742205094, guid: 09aaf7bbe87c522449178298fd16e411, type: 3}
+  smokerPrefab: {fileID: 1018142104742205094, guid: 90153038d6cf347a395ed6d9a121e9cb, type: 3}
   spawnPos: {fileID: 121233259}
-  jumpSnd: {fileID: 0}
-  shurikenSnd: {fileID: 0}
-  warpSnd: {fileID: 0}
+  jumpSnd: {fileID: 8300000, guid: e074da7cfad33464699f32022f929b5c, type: 3}
+  shurikenSnd: {fileID: 8300000, guid: db37c9f9ebad24640a728369b80d3d53, type: 3}
+  warpSnd: {fileID: 8300000, guid: dd4dd08a367096143a2f0dce85ac9702, type: 3}
   facingLeft: 0
   grounded: 0
 --- !u!212 &1478086322
