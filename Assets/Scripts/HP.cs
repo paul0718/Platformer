@@ -7,13 +7,18 @@ public class HP : MonoBehaviour
 {
     public Slider slider;
 
-    public void setDefaultHealthPoint(int healthpoint)
+    public void setDefaultHealthPoint(float healthpoint)
     {
         slider.maxValue = healthpoint;
         slider.value = healthpoint;
     }
 
-    public void setHealthPoint(int healthpoint)
+    public float getHealthPoint()
+    {
+        return slider.value;
+    }
+
+    public void setHealthPoint(float healthpoint)
     {
         slider.value = healthpoint;
     }
