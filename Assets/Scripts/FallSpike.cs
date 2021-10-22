@@ -40,7 +40,7 @@ public class FallSpike : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")){
-            FindObjectOfType<HP>().setHealthPoint(0);
+            FindObjectOfType<HP>().loseHealth(10.0f);
         }
         else if (other.CompareTag("Ground")){
             Destroy(gameObject);

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6342b3fd88f4c6340a3bf8c5838e029e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRadius: 5
+  attackRadius: 3.5
 --- !u!50 &8343548856454900016
 Rigidbody2D:
   serializedVersion: 4
