@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     // Return true if the enemy should chase the player.

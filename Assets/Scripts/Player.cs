@@ -18,10 +18,7 @@ public class Player : MonoBehaviour
     AudioSource _audioSource;
     public AudioClip jumpSnd;
 
-    public GameObject hpUI;
-    public GameObject PauseUI;
-
-    
+    public HP hp;
 
     public bool facingLeft = false;
     public bool grounded = false;
@@ -47,6 +44,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PublicVars.paused) return;
         CheckMoveDirection();
         grounded = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
         oldPos = newPos;
@@ -67,8 +65,9 @@ public class Player : MonoBehaviour
         newPos = transform.position;
         if(transform.position.y <= -20)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            hp.setHealthPoint(0);
         }
+
     }
 
     void CheckMoveDirection()
