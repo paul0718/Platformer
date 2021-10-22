@@ -24,16 +24,20 @@ public class Player : MonoBehaviour
     public bool grounded = false;
 
     Rigidbody2D _rigidbody;
+    Animator _animator;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         xSpeed = Input.GetAxis("Horizontal") * speed;
+        _animator.SetFloat("Speed", Mathf.Abs(xSpeed));
+        _animator.SetFloat("YSpeed", Mathf.Abs(_rigidbody.velocity.y));
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
         if((facingLeft == false && transform.localScale.x < 0) || (facingLeft == true && transform.localScale.x > 0) )
         {

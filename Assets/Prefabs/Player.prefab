@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5636150681793765246}
   - component: {fileID: 5636150681793765247}
   - component: {fileID: 5636150681793765221}
+  - component: {fileID: 7849407378442835769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -137,6 +138,7 @@ MonoBehaviour:
     m_Bits: 64
   feet: {fileID: 5636150680432709306}
   jumpSnd: {fileID: 8300000, guid: e074da7cfad33464699f32022f929b5c, type: 3}
+  hp: {fileID: 0}
   facingLeft: 0
   grounded: 0
 --- !u!50 &5636150681793765217
@@ -308,3 +310,22 @@ MonoBehaviour:
   shurikenSnd: {fileID: 8300000, guid: db37c9f9ebad24640a728369b80d3d53, type: 3}
   warpSnd: {fileID: 8300000, guid: fafae7907217b4e1cb059e74dd1151a9, type: 3}
   facingLeft: 0
+--- !u!95 &7849407378442835769
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636150681793765244}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d75f6e2386f2c14e8317bd15c85c326, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
