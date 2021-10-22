@@ -10,10 +10,12 @@ public class FallSpike : MonoBehaviour
     public float attackRadius = 4f;
     float dist_x;
     bool below = false;
-
+    AudioSource _audioSource;
+    public AudioClip hitSnd;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.gravityScale = 0.0f;
         player = GameObject.FindWithTag("Player");
@@ -41,6 +43,7 @@ public class FallSpike : MonoBehaviour
     {
         if (other.CompareTag("Player")){
             FindObjectOfType<HP>().loseHealth(10.0f);
+            _audioSource.PlayOneShot(hitSnd);
         }
         else if (other.CompareTag("Ground")){
             Destroy(gameObject);

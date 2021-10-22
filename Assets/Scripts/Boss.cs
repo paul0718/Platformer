@@ -21,11 +21,10 @@ public class Boss : MonoBehaviour
 
     Rigidbody2D _rigidbody;
     AudioSource _audioSource;
-    public AudioClip hitSnd;
+    public AudioClip shootSnd;
     Vector2 character;
     float dist;
 
-    public AudioClip shurikenSnd;
     public GameObject hookPrefab;
     public int hookForce = 800;
 
@@ -83,7 +82,7 @@ public class Boss : MonoBehaviour
 
     private void attack()
     {
-        // _audioSource.PlayOneShot(shurikenSnd);//?
+        _audioSource.PlayOneShot(shootSnd);//?
         GameObject newHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
         newHook.GetComponent<Rigidbody2D>().AddForce(new Vector2(hookForce * (-transform.localScale.x), 0));
 

@@ -196,8 +196,8 @@ MonoBehaviour:
   returnSpeed: 2.5
   damage: 2
   enemyHP: 100
-  followRadius: 10
-  attackRadius: 7
+  followRadius: 20
+  attackRadius: 11
   hitSnd: {fileID: 0}
   shurikenSnd: {fileID: 0}
   hookPrefab: {fileID: 0}

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   returnSpeed: 2.5
-  damange: 0
+  damage: 1
   enemyHP: 20
   followRadius: 5
   attackRadius: 2
