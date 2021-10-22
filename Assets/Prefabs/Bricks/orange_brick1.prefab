@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3855729271621743100}
   m_Layer: 6
   m_Name: orange_brick1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

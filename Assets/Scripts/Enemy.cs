@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int speed = 4;
+    public int speed = 3;
     public float returnSpeed = 2.5f;
-    public int damange;
-    public int enemyHP;
+    public int damage = 1;
+    public int enemyHP = 20;
     public float followRadius = 3.0f;
     public float attackRadius = 1.5f;
 
-    public GameObject player;
-    public HP hp;
+    GameObject player;
+    Rigidbody2D player_rb;
     float attackCooldown = 3;
     float nextAttack;
 
@@ -22,24 +22,26 @@ public class Enemy : MonoBehaviour
     Rigidbody2D _rigidbody;
     AudioSource _audioSource;
     public AudioClip hitSnd;
+    Vector2 character;
+    float dist;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        hp.setDefaultHealthPoint(10);
+        FindObjectOfType<HP>().setDefaultHealthPoint(10);
         startPos = transform.position;
+        player = GameObject.FindWithTag("Player");
+        player_rb = player.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        float dist = Vector2.Distance(player.transform.position, transform.position);
-        Vector3 character = transform.localScale;
+        dist = Vector2.Distance(player.transform.position, transform.position);
+        character = transform.localScale;
         if (checkShouldFollow(dist)) {
             if (checkShouldAttack(dist) && Time.time > nextAttack) {
-                nextAttack = Time.time + attackCooldown;
-                _audioSource.PlayOneShot(hitSnd);
-                hp.loseHealth(damange);
-                player.GetComponent<Rigidbody2D>().AddForce(new Vector2(2000 * transform.localScale.x, 200));
+                attack();
             }
             else {
                 // Player is in front of the enemy.
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-        transform.localScale = character;
+        // transform.localScale = character;
         if(enemyHP <= 0)
         {
             Destroy(gameObject);
@@ -74,6 +76,17 @@ public class Enemy : MonoBehaviour
     {
         if (dist < attackRadius) { return true; }
         return false;
+    }
+
+    private void attack()
+    {
+        nextAttack = Time.time + attackCooldown;
+        _audioSource.PlayOneShot(hitSnd);
+        FindObjectOfType<HP>().loseHealth(damage);
+        // Debug.Log("Player scale now: " + player.transform.localScale.x);
+        // Debug.Log("Enemy scale now: " + this.transform.localScale.x);
+        // Debug.Log("Force Added: " + 2000 * (-player.transform.localScale.x));
+        player_rb.AddForce(new Vector2(20000 * (-player.transform.localScale.x), 500));
     }
 
     private void OnTriggerEnter2D(Collider2D other)

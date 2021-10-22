@@ -105,8 +105,6 @@ MonoBehaviour:
   enemyHP: 20
   followRadius: 5
   attackRadius: 2
-  player: {fileID: 0}
-  hp: {fileID: 0}
   hitSnd: {fileID: 8300000, guid: b5327abb4b7d30e4c85523f6bc21b3ea, type: 3}
 --- !u!50 &4026714203175817640
 Rigidbody2D:

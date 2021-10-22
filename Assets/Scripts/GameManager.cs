@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
-    public HP hp;
 
     private void Start(){
         Time.timeScale = 1;
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
                 PublicVars.paused = true;
             }
         }
-        if(hp.getHealthPoint() <= 0)
+        if(FindObjectOfType<HP>().getHealthPoint() <= 0)
         {
             Time.timeScale = 0;
             gameOverMenu.SetActive(true);
